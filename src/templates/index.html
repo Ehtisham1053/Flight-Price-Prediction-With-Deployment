@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Price Prediction</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+            width: 600px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 25px;
+            letter-spacing: 1.5px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            padding: 14px 0;
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3700b3;
+            transform: scale(1.05);
+        }
+
+        .prediction {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 22px;
+            color: #333;
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .prediction h2 {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flight Price Prediction</h1>
+        <form action="/" method="POST">
+            <label for="Airline">Airline:</label>
+            <input type="text" name="Airline">
+
+            <label for="Date_of_Journey">Date of Journey:</label>
+            <input type="text" name="Date_of_Journey">
+
+            <label for="Source">Source:</label>
+            <input type="text" name="Source">
+
+            <label for="Destination">Destination:</label>
+            <input type="text" name="Destination">
+
+            <label for="Route">Route:</label>
+            <input type="text" name="Route">
+
+            <label for="Dep_Time">Departure Time:</label>
+            <input type="text" name="Dep_Time">
+
+            <label for="Arrival_Time">Arrival Time:</label>
+            <input type="text" name="Arrival_Time">
+
+            <label for="Duration">Duration:</label>
+            <input type="text" name="Duration">
+
+            <label for="Total_Stops">Total Stops:</label>
+            <input type="text" name="Total_Stops">
+
+            <label for="Additional_Info">Additional Info:</label>
+            <input type="text" name="Additional_Info">
+
+            <button type="submit">Predict Price</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="prediction">
+            <h2>{{ prediction_text }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
